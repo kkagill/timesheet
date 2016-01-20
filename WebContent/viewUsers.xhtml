@@ -1,0 +1,59 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+<head>
+    <title>IGNORED</title>
+</head>
+<body>
+    <ui:composition template="/templates/masterLayout.xhtml">
+        <ui:define name="windowTitle">
+            #{msgs.viewusers}
+        </ui:define>
+        <ui:define name="heading">
+            <ui:include src="/sections/admin/header.xhtml" />
+        </ui:define>
+        <ui:define name="content">
+            <h:form>
+                <h:dataTable class="table table-hover table-bordered" value="#{storage.list}" var="store">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{msgs.edit}" style="font-weight: bold" />
+                        </f:facet>
+                        <h:selectBooleanCheckbox value="#{store.editable}" onclick="submit()" />
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{msgs.empID}" style="font-weight: bold" />
+                        </f:facet>
+                        <h:inputText value="#{store.empID}" rendered="#{store.editable}" size="10" />
+                        <h:outputText value="#{store.empID}" rendered="#{not store.editable}" />
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{msgs.pwdPrompt}" style="font-weight: bold" />
+                        </f:facet>
+                        <h:inputText value="#{store.password}" rendered="#{store.editable}" size="10" />
+                        <h:outputText value="#{store.password}" rendered="#{not store.editable}" />
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{msgs.empName}" style="font-weight: bold" />
+                        </f:facet>
+                        <h:inputText value="#{store.empName}" rendered="#{store.editable}" size="10" />
+                        <h:outputText value="#{store.empName}" rendered="#{not store.editable}" />
+                    </h:column>
+                    <h:column>
+                        <h:commandButton value="#{msgs.delete}" action="#{storage.delete(store)}" styleClass="btn btn-default"/>
+                    </h:column>
+                    <h:column>
+           			<h:commandButton value="#{msgs.save}" action="#{storage.saveEmployee(store)}"  
+           								rendered="#{store.editable}" styleClass="btn btn-default"/>
+           			</h:column> 
+                </h:dataTable>                
+            </h:form>
+
+        </ui:define>
+    </ui:composition>
+</body>
+</html>

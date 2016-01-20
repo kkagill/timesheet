@@ -1,0 +1,141 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+<head>
+    <title>IGNORED</title>
+</head>
+
+<body>
+    <ui:composition template="/templates/masterLayout.xhtml">
+        <ui:define name="windowTitle">
+            #{msgs.timesheet}
+        </ui:define>
+        <ui:define name="heading">
+            <ui:include src="/sections/admin/header.xhtml" />
+        </ui:define>
+        <ui:define name="content">
+            <h:panelGroup xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+                <h:form>
+                    <div class="panel panel-warning">
+
+                        <div class="panel-heading">
+                            <h3 class="panel-title">                
+			                    #{msgs.nameusername}<h:outputText value="#{employeeManager.employee.empName}"/><br/><br/>                      
+			                    #{msgs.employeenumber}<h:outputText value="#{employeeManager.employee.empID}"/><br/><br/>                     
+			                    #{msgs.weeknumber} <h:outputText value="#{timesheet.getWeekNumber()}"/><br/><br/>
+			                    #{msgs.weekending} <h:outputText value="#{timesheet.getWeekEnd()}"/>			                    
+			                </h3>	
+			                <br/>                          		                
+			                <h:selectOneMenu id="dropDown" value="#{timesheet.viewWeek}" class="btn btn-default dropdown-toggle">
+           				    	<f:selectItems value="#{timesheetManager.timesheetWeeks}" />
+				            </h:selectOneMenu>
+				            <h:commandButton value="#{msgs.view}" action="#{timesheet.viewTimesheet}" styleClass="btn btn-default"/>				            
+                            <br/>
+                            <br/>
+                        </div>
+                        <h:dataTable value="#{timesheet.list}" var="list" styleClass="table table-hover">
+                            <h:column headerClass="columnHeader">
+                                <f:facet name="header">
+                                    <h:outputText value="ProjectID" />
+                                </f:facet>
+                                <h:outputText value="#{list.projectID}"/>                                
+                            </h:column>
+                            <h:column headerClass="columnHeader">
+                                <f:facet name="header">
+                                    <h:outputText value="WP" />
+                                </f:facet>
+                                <h:outputText value="#{list.workPackage}" />                               
+                                <f:facet name="footer">
+                                    <h:outputText value="Total" />
+                                </f:facet>
+                            </h:column>
+                            <h:column headerClass="columnHeader">
+                                <f:facet name="header">
+                                    <h:outputText value="Total" />
+                                </f:facet>
+                                <h:outputText value="#{list.total}" />
+                                <f:facet name="footer">
+                                    <h:outputText value="#{timesheet.total}" />
+                                </f:facet>
+                            </h:column>
+                            <h:column headerClass="columnHeader">
+                                <f:facet name="header">
+                                    <h:outputText value="Sat" />
+                                </f:facet>
+                                <h:outputText value="#{list.sat}" /> 
+                                <f:facet name="footer">
+                                    <h:outputText value="#{timesheet.satTotal}" />
+                                </f:facet>
+                            </h:column>
+
+                            <h:column headerClass="columnHeader">
+                                <f:facet name="header">
+                                    <h:outputText value="Sun" />
+                                </f:facet>
+                                <h:outputText value="#{list.sun}"/> 
+                                <f:facet name="footer">
+                                    <h:outputText value="#{timesheet.sunTotal}" />
+                                </f:facet>
+                            </h:column>
+                            <h:column headerClass="columnHeader">
+                                <f:facet name="header">
+                                    <h:outputText value="Mon" />
+                                </f:facet>
+                                <h:outputText value="#{list.mon}" />                      
+                                <f:facet name="footer">
+                                    <h:outputText value="#{timesheet.monTotal}" />
+                                </f:facet>
+                            </h:column>
+                            <h:column headerClass="columnHeader">
+                                <f:facet name="header">
+                                    <h:outputText value="Tue" />
+                                </f:facet>
+                                <h:outputText value="#{list.tue}" />                      
+                                <f:facet name="footer">
+                                    <h:outputText value="#{timesheet.tueTotal}" />
+                                </f:facet>
+                            </h:column>
+                            <h:column headerClass="columnHeader">
+                                <f:facet name="header">
+                                    <h:outputText value="Wed" />
+                                </f:facet>
+                                <h:outputText value="#{list.wed}"/>                      
+                                <f:facet name="footer">
+                                    <h:outputText value="#{timesheet.wedTotal}" />
+                                </f:facet>
+                            </h:column>
+                            <h:column headerClass="columnHeader">
+                                <f:facet name="header">
+                                    <h:outputText value="Thu" />
+                                </f:facet>
+                                <h:outputText value="#{list.thu}" />                      
+                                <f:facet name="footer">
+                                    <h:outputText value="#{timesheet.thuTotal}" />
+                                </f:facet>
+                            </h:column>
+                            <h:column headerClass="columnHeader">
+                                <f:facet name="header">
+                                    <h:outputText value="Fri" />
+                                </f:facet>
+                                <h:outputText value="#{list.fri}"/>                      
+                                <f:facet name="footer">
+                                    <h:outputText value="#{timesheet.friTotal}" />
+                                </f:facet>
+                            </h:column>
+                            <h:column headerClass="columnHeader">
+                                <f:facet name="header">
+                                    <h:outputText value="Notes" />
+                                </f:facet>
+                                <h:outputText value="#{list.notes}"/>                               
+                            </h:column>                            
+                        </h:dataTable>                        
+                    </div>
+                </h:form>
+            </h:panelGroup>
+        </ui:define>
+    </ui:composition>
+</body>
+
+</html>
+

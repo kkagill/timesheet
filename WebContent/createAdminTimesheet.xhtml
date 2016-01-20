@@ -1,0 +1,151 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+<head>
+    <title>IGNORED</title>
+</head>
+
+<body>
+    <ui:composition template="/templates/masterLayout.xhtml">
+        <ui:define name="windowTitle">
+            #{msgs.timesheet}
+        </ui:define>
+        <ui:define name="heading">
+            <ui:include src="/sections/admin/header.xhtml" />
+        </ui:define>
+        <ui:define name="content">
+            <h:panelGroup xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+                <h:form>
+                    <div class="panel panel-warning">
+                        <h:dataTable value="#{timesheet.list}" var="list" styleClass="table table-hover">                           
+                            <h:column headerClass="columnHeader">
+                                <f:facet name="header">
+                                    <h:outputText value="ProjectID" />
+                                </f:facet>                               
+                                <h:inputText value="#{list.projectID}" size="3"/>
+                            </h:column>
+                            <h:column headerClass="columnHeader">
+                                <f:facet name="header">
+                                    <h:outputText value="WP" />
+                                </f:facet>                                
+                                <h:inputText value="#{list.workPackage}" size="3"/>
+                                <f:facet name="footer">
+                                    <h:outputText value="Total" />
+                                </f:facet>
+                            </h:column>
+                            <h:column headerClass="columnHeader">
+                                <f:facet name="header">
+                                    <h:outputText value="Total" />
+                                </f:facet>                                
+                                <f:facet name="footer">
+                                    <h:outputText value="#{list.total}" />
+                                </f:facet>
+                            </h:column>
+                            <h:column headerClass="columnHeader">
+                                <f:facet name="header">
+                                    <h:outputText value="Sat" />
+                                </f:facet>                                
+                                <h:inputText value="#{list.sat}" size="3">
+                                    <f:validateDoubleRange minimum="0" maximum="24" />
+                                    <h:message for="sat" />
+                                </h:inputText>
+                                <f:facet name="footer">
+                                    <h:outputText value="#{timesheet.satTotal}" />
+                                </f:facet>
+                            </h:column>
+
+                            <h:column headerClass="columnHeader">
+                                <f:facet name="header">
+                                    <h:outputText value="Sun" />
+                                </f:facet>                                
+                                <h:inputText value="#{list.sun}" size="3">
+                                    <f:validateDoubleRange minimum="0" maximum="24" />
+                                    <h:message for="sun" />
+                                </h:inputText>
+                                <f:facet name="footer">
+                                    <h:outputText value="#{timesheet.sunTotal}" />
+                                </f:facet>
+                            </h:column>
+                            <h:column headerClass="columnHeader">
+                                <f:facet name="header">
+                                    <h:outputText value="Mon" />
+                                </f:facet>                                
+                                <h:inputText value="#{list.mon}" size="3">
+                                    <f:validateDoubleRange minimum="0" maximum="24" />
+                                    <h:message for="mon" />
+                                </h:inputText>
+                                <f:facet name="footer">
+                                    <h:outputText value="#{timesheet.monTotal}" />
+                                </f:facet>
+                            </h:column>
+                            <h:column headerClass="columnHeader">
+                                <f:facet name="header">
+                                    <h:outputText value="Tue" />
+                                </f:facet>                               
+                                <h:inputText value="#{list.tue}" size="3">
+                                    <f:validateDoubleRange minimum="0" maximum="24" />
+                                    <h:message for="tue" />
+                                </h:inputText>
+                                <f:facet name="footer">
+                                    <h:outputText value="#{timesheet.tueTotal}" />
+                                </f:facet>
+                            </h:column>
+                            <h:column headerClass="columnHeader">
+                                <f:facet name="header">
+                                    <h:outputText value="Wed" />
+                                </f:facet>                                
+                                <h:inputText value="#{list.wed}" size="3">
+                                    <f:validateDoubleRange minimum="0" maximum="24" />
+                                    <h:message for="wed" />
+                                </h:inputText>
+                                <f:facet name="footer">
+                                    <h:outputText value="#{timesheet.wedTotal}" />
+                                </f:facet>
+                            </h:column>
+                            <h:column headerClass="columnHeader">
+                                <f:facet name="header">
+                                    <h:outputText value="Thu" />
+                                </f:facet>                               
+                                <h:inputText value="#{list.thu}" size="3">
+                                    <f:validateDoubleRange minimum="0" maximum="24" />
+                                    <h:message for="thu" />
+                                </h:inputText>
+                                <f:facet name="footer">
+                                    <h:outputText value="#{timesheet.thuTotal}" />
+                                </f:facet>
+                            </h:column>
+                            <h:column headerClass="columnHeader">
+                                <f:facet name="header">
+                                    <h:outputText value="Fri" />
+                                </f:facet>                                
+                                <h:inputText value="#{list.fri}" size="3">
+                                    <f:validateDoubleRange minimum="0" maximum="24" />
+                                    <h:message for="fri" />
+                                </h:inputText>
+                                <f:facet name="footer">
+                                    <h:outputText value="#{timesheet.friTotal}" />
+                                </f:facet>
+                            </h:column>
+                            <h:column headerClass="columnHeader">
+                                <f:facet name="header">
+                                    <h:outputText value="Notes" />
+                                </f:facet>                                
+                                <h:inputText value="#{list.notes}"/>
+                            </h:column>
+                            <h:column headerClass="columnHeader">
+                                <h:commandLink value="Delete" action="#{timesheet.removeRow(list)}" />
+                            </h:column>                            
+                        </h:dataTable>
+                        <div class="navbar-nav navbar-right">                        	
+                            <h:commandButton value="#{msgs.save}" action="#{timesheet.save}" styleClass="btn btn-default" />
+                            <h:commandButton value="#{msgs.addrow}" action="#{timesheet.addRow}" styleClass="btn btn-default" />                                                       
+                        </div>
+                    </div>
+                </h:form>
+            </h:panelGroup>
+        </ui:define>
+    </ui:composition>
+</body>
+
+</html>

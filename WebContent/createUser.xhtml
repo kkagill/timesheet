@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:h="http://java.sun.com/jsf/html">
+   <head><title>IGNORED</title></head>
+   <body>
+      <ui:composition template="/templates/masterLayout.xhtml">     
+         <ui:define name="windowTitle">
+            #{msgs.createuser}
+         </ui:define> 
+         
+         <ui:define name="heading">
+            <ui:include src="/sections/admin/header.xhtml"/>
+         </ui:define>
+         
+         <ui:define name="content">         	
+    		<h:form styleClass="form-horizontal" xmlns:h="http://java.sun.com/jsf/html">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="text-center">#{msgs.createuser}</h1>
+                        </div>
+                        <div class="modal-body">
+                            <!-- <form class="form center-block"> -->
+								<div class="form-group">
+                                    <h4><h:outputText value="User ID(numerical only):"></h:outputText></h4>
+                                    <h:inputText value="#{storage.inUserID}" class="form-control input-lg" 
+                                                   required="true" p:placeholder="ID"/>
+                                </div>
+								<div class="form-group">
+                                    <h4><h:outputText value="Password:"></h:outputText></h4>
+                                    <h:inputSecret value="#{storage.inPassword}" class="form-control input-lg" 
+                                                   required="true" p:placeholder="Password"/>
+                                </div>                               
+                                <div class="form-group">
+                                	<h4><h:outputText value="Employee Name:"></h:outputText></h4>
+                                    <h:inputText value="#{storage.inName}" class="form-control input-lg" 
+                                                 required="true" p:placeholder="Name"/>
+                                </div>
+                                
+                                
+                                 
+                                <div class="form-group">                                    
+                                    <h:commandButton value="#{msgs.createuser}" 
+                                                     action="#{storage.createUser}"
+                       							     styleClass="btn btn-primary btn-lg btn-block"/>
+                                </div>
+                            <!-- </form> -->
+                        </div>
+                        <div class="modal-footer">
+                        </div>
+                    </div>
+                </div>
+            </h:form>
+          </ui:define>
+      </ui:composition>
+   </body>
+</html>
