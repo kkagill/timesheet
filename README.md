@@ -1,19 +1,6 @@
 # timesheet
 javaEE assignment at BCIT. Used JDBC for storage
 
-Pages and Sub-pages
-
-1.	Login page
-2.	Logout page (same as login)
-3.	Non-manager landing page
-a.	View timesheet
-b.	Create timesheet
-4.	Manager landing page
-a.	Create user page
-b.	View users page 
-c.	View  timesheet
-d.	Create timesheet
-
 Requirements and functions
 
 1.	Login page
