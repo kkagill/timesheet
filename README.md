@@ -50,3 +50,6 @@ b.	Allows the user to create new users with their profile and information
 8.	View users page 
 a.	A page for only manager
 b.	Allows the user to edit existing user profiles and information
+
+Login page
+![alt tag](http://blog.naver.com/PostView.nhn?blogId=newkkagill&Redirect=View&logNo=220619315151&categoryNo=1&isAfterWrite=true&isMrblogPost=false&isHappyBeanLeverage=true&contentLength=9306&redirect=View&widgetTypeCall=true&topReferer=http%3A%2F%2Fblog.editor.naver.com%2Feditor%3FtargetCategory%3D1#)
