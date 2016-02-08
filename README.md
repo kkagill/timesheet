@@ -1,10 +1,10 @@
 # Timesheet
                                                                                                                                       
-	Collaborated with a group of two members to create a JavaServer Faces web application that allows users to access timesheet management system, which is designed as a Model-View-Controller system run by an application server.
-	Created Timesheet/TimesheetRow classes that users can create and fill in a timesheet of activities performed in the current week.
-	Focused on UI which includes formatting, colour scheme, as well as ease of use.
-	Created database (MySQL) to persist user information and timesheet data. 
-	Technologies involved Java EE, HTML, Bootstrap, CSS, JDBC, and Wildfly.
+- Collaborated with a group of two members to create a JavaServer Faces web application that allows users to access timesheet management system, which is designed as a Model-View-Controller system run by an application server.
+- Created Timesheet/TimesheetRow classes that users can create and fill in a timesheet of activities performed in the current week.
+- Focused on UI which includes formatting, colour scheme, as well as ease of use.
+- Created database (MySQL) to persist user information and timesheet data. 
+- Technologies involved Java EE, HTML, Bootstrap, CSS, JDBC, and Wildfly.
 
 
 Login page
