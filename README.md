@@ -1,42 +1,11 @@
-# timesheet
-javaEE assignment at BCIT. Used JDBC for storage
+# Timesheet
+                                                                                                                                      
+	Collaborated with a group of two members to create a JavaServer Faces web application that allows users to access timesheet management system, which is designed as a Model-View-Controller system run by an application server.
+	Created Timesheet/TimesheetRow classes that users can create and fill in a timesheet of activities performed in the current week.
+	Focused on UI which includes formatting, colour scheme, as well as ease of use.
+	Created database (MySQL) to persist user information and timesheet data. 
+	Technologies involved Java EE, HTML, Bootstrap, CSS, JDBC, and Wildfly.
 
-Requirements and functions
-
-1.	Login page
-a.	Allows user to input user-name and password
-b.	With the correct credentials user can log into their accounts
-c.	User can choose localization(Korean or English)
-2.	Logout page
-a.	Logs out of the system, allows other users to login
-3.	Non-manager landing page
-a.	The welcoming page for a non-manager
-b.	Includes a list of action that they can choose from
-•	Which includes the following options of actions:
-1.	View timesheet
-2.	Create timesheet
-4.	View timesheet
-a.	Views a past timetable
-•	However, it is not editable
-5.	Create timesheet
-a.	At the moment of creation, a timesheet should have 5 empty rows
-b.	There should be a button to add rows
-c.	Time inputs are input in hours (e.g. 0.0 – 24.0 hours)
-d.	Headers files are fill in automatically once a timetable is created
-e.	Week number and week-ending is default to the current week
-6.	Manager landing page
-a.	The welcoming page for a manager
-•	Which includes the following options of actions:
-1.	Create user page
-2.	View users page 
-3.	View timesheet
-4.	Create timesheet
-7.	Create user page
-a.	A page for only manager
-b.	Allows the user to create new users with their profile and information
-8.	View users page 
-a.	A page for only manager
-b.	Allows the user to edit existing user profiles and information
 
 Login page
 
